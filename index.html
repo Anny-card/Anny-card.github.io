@@ -1,0 +1,1312 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Aqdas Atta | Full-Stack Web & AI Developer</title>
+  <meta name="description" content="Official portfolio of Aqdas Atta - Full-Stack Web Developer and Aspiring AI Engineer from GC University Faisalabad (GCUF)." />
+
+  <!-- Favicon -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🧠</text></svg>">
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              cyan: '#00F0FF',
+              purple: '#8B5CF6',
+              emerald: '#10B981',
+              dark: '#080C14',
+              surface: '#0E1424',
+              surfaceLight: '#161F36',
+              border: 'rgba(255, 255, 255, 0.08)'
+            }
+          },
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'Inter', 'sans-serif'],
+            mono: ['"JetBrains Mono"', 'monospace']
+          },
+          animation: {
+            'float-slow': 'float 6s ease-in-out infinite',
+            'float-fast': 'float 4s ease-in-out infinite alternate',
+            'pulse-glow': 'pulseGlow 3s ease-in-out infinite',
+            'spin-slow': 'spin 12s linear infinite'
+          },
+          keyframes: {
+            float: {
+              '0%, 100%': { transform: 'translateY(0px)' },
+              '50%': { transform: 'translateY(-12px)' }
+            },
+            pulseGlow: {
+              '0%, 100%': { opacity: '0.4', transform: 'scale(1)' },
+              '50%': { opacity: '0.8', transform: 'scale(1.05)' }
+            }
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <style>
+    /* Custom Scrollbar */
+    ::-webkit-scrollbar {
+      width: 7px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #080C14;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #1e293b;
+      border-radius: 4px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #00F0FF;
+    }
+
+    /* Gradients & Glows */
+    .text-gradient {
+      background: linear-gradient(135deg, #00F0FF 0%, #8B5CF6 50%, #EC4899 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .text-gradient-cyan {
+      background: linear-gradient(135deg, #00F0FF 0%, #3B82F6 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .glow-cyan {
+      box-shadow: 0 0 40px -10px rgba(0, 240, 255, 0.4);
+    }
+    .glow-purple {
+      box-shadow: 0 0 40px -10px rgba(139, 92, 246, 0.4);
+    }
+    .border-gradient {
+      border-image: linear-gradient(to right, #00F0FF, #8B5CF6) 1;
+    }
+    .glass-card {
+      background: rgba(14, 20, 36, 0.75);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+    }
+    .glass-card:hover {
+      border-color: rgba(0, 240, 255, 0.4);
+      box-shadow: 0 10px 30px -10px rgba(0, 240, 255, 0.2);
+    }
+
+    /* Scroll Reveal Classes */
+    .reveal {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .reveal.active {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Tilt Effect Card */
+    .tilt-card {
+      transition: transform 0.2s ease-out, box-shadow 0.2s ease-out;
+      transform-style: preserve-3d;
+      perspective: 1000px;
+    }
+
+    /* Cursor Follower Glow */
+    #cursorGlow {
+      pointer-events: none;
+      position: fixed;
+      width: 450px;
+      height: 450px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(0, 240, 255, 0.08) 0%, rgba(139, 92, 246, 0.04) 40%, transparent 70%);
+      transform: translate(-50%, -50%);
+      transition: width 0.3s, height 0.3s, transform 0.1s ease-out;
+      z-index: 1;
+    }
+  </style>
+</head>
+
+<body class="bg-[#080C14] text-gray-200 font-sans selection:bg-cyan-400 selection:text-black relative overflow-x-hidden">
+
+  <!-- Interactive Cursor Follower -->
+  <div id="cursorGlow"></div>
+
+  <!-- Interactive AI Neural Network Canvas Background -->
+  <canvas id="neuralCanvas" class="fixed inset-0 pointer-events-none z-0 opacity-40"></canvas>
+
+  <!-- Ambient Backdrop Lights -->
+  <div class="fixed top-20 left-10 w-96 h-96 bg-cyan-500/10 rounded-full blur-[140px] pointer-events-none -z-10 animate-pulse-glow"></div>
+  <div class="fixed bottom-20 right-10 w-[500px] h-[500px] bg-purple-600/10 rounded-full blur-[160px] pointer-events-none -z-10"></div>
+
+  <!-- Navigation Bar -->
+  <header class="fixed top-0 left-0 right-0 z-50 bg-[#080C14]/85 backdrop-blur-xl border-b border-white/10 transition-all duration-300" id="mainHeader">
+    <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+      
+      <!-- Brand Logo with animated tech pulse -->
+      <a href="#hero" class="flex items-center gap-3 group">
+        <div class="relative">
+          <div class="w-11 h-11 rounded-xl bg-gradient-to-tr from-cyan-400 via-blue-600 to-purple-600 flex items-center justify-center text-black font-mono font-black text-lg shadow-lg group-hover:rotate-6 transition-all duration-300">
+            AA
+          </div>
+          <span class="absolute -bottom-1 -right-1 w-3.5 h-3.5 bg-emerald-400 border-2 border-[#080C14] rounded-full animate-ping"></span>
+          <span class="absolute -bottom-1 -right-1 w-3.5 h-3.5 bg-emerald-400 border-2 border-[#080C14] rounded-full"></span>
+        </div>
+        <div class="flex flex-col">
+          <span class="font-extrabold text-base tracking-tight text-white group-hover:text-cyan-400 transition-colors">Aqdas Atta</span>
+          <span class="text-[11px] font-mono text-cyan-400 tracking-wider flex items-center gap-1">
+            <i class="fas fa-terminal text-[9px]"></i> AI & Web Dev
+          </span>
+        </div>
+      </a>
+
+      <!-- Desktop Nav Links -->
+      <nav class="hidden md:flex items-center gap-8 text-sm font-medium text-gray-300">
+        <a href="#about" class="hover:text-cyan-400 transition-colors flex items-center gap-1.5"><span class="text-cyan-400 font-mono text-xs">01.</span> About</a>
+        <a href="#skills" class="hover:text-cyan-400 transition-colors flex items-center gap-1.5"><span class="text-cyan-400 font-mono text-xs">02.</span> Skills</a>
+        <a href="#projects" class="hover:text-cyan-400 transition-colors flex items-center gap-1.5"><span class="text-cyan-400 font-mono text-xs">03.</span> Projects</a>
+        <a href="#experience" class="hover:text-cyan-400 transition-colors flex items-center gap-1.5"><span class="text-cyan-400 font-mono text-xs">04.</span> Roadmap</a>
+        <a href="#contact" class="hover:text-cyan-400 transition-colors flex items-center gap-1.5"><span class="text-cyan-400 font-mono text-xs">05.</span> Contact</a>
+      </nav>
+
+      <!-- Action Buttons -->
+      <div class="hidden md:flex items-center gap-4">
+        <a href="https://github.com/Anny-card" target="_blank" class="w-10 h-10 rounded-xl bg-white/5 hover:bg-cyan-500/10 border border-white/10 hover:border-cyan-400/50 flex items-center justify-center text-gray-300 hover:text-cyan-400 transition-all text-base" title="GitHub Profile">
+          <i class="fab fa-github"></i>
+        </a>
+        <a href="https://linkedin.com/in/aqdasatta" target="_blank" class="w-10 h-10 rounded-xl bg-white/5 hover:bg-blue-500/10 border border-white/10 hover:border-blue-400/50 flex items-center justify-center text-gray-300 hover:text-blue-400 transition-all text-base" title="LinkedIn Profile">
+          <i class="fab fa-linkedin-in"></i>
+        </a>
+        <a href="#contact" class="relative group overflow-hidden px-5 py-2.5 rounded-xl font-semibold text-xs uppercase tracking-wider bg-gradient-to-r from-cyan-400 to-blue-500 text-black hover:shadow-lg hover:shadow-cyan-400/30 transition-all">
+          <span class="relative z-10 flex items-center gap-1.5">
+            Let's Talk <i class="fas fa-arrow-right text-[10px] group-hover:translate-x-1 transition-transform"></i>
+          </span>
+        </a>
+      </div>
+
+      <!-- Mobile Hamburger Button -->
+      <button id="mobileMenuBtn" class="md:hidden text-gray-300 hover:text-cyan-400 text-2xl focus:outline-none p-2">
+        <i class="fas fa-bars"></i>
+      </button>
+    </div>
+
+    <!-- Mobile Drawer Menu -->
+    <div id="mobileMenu" class="hidden md:hidden px-6 pt-4 pb-8 bg-[#0E1424]/95 backdrop-blur-2xl border-b border-white/10 space-y-4">
+      <a href="#about" class="block text-gray-300 hover:text-cyan-400 py-1.5 font-medium mobile-link">01. About Me</a>
+      <a href="#skills" class="block text-gray-300 hover:text-cyan-400 py-1.5 font-medium mobile-link">02. Skills & Stack</a>
+      <a href="#projects" class="block text-gray-300 hover:text-cyan-400 py-1.5 font-medium mobile-link">03. Featured Projects</a>
+      <a href="#experience" class="block text-gray-300 hover:text-cyan-400 py-1.5 font-medium mobile-link">04. Learning Roadmap</a>
+      <a href="#contact" class="block text-gray-300 hover:text-cyan-400 py-1.5 font-medium mobile-link">05. Contact Aqdas</a>
+      <div class="pt-2 flex items-center gap-3">
+        <a href="https://github.com/Anny-card" target="_blank" class="flex-1 text-center py-2.5 rounded-xl bg-white/5 border border-white/10 text-white text-xs font-mono">
+          <i class="fab fa-github mr-1"></i> Anny-card
+        </a>
+        <a href="#contact" class="flex-1 text-center py-2.5 rounded-xl bg-cyan-400 text-black font-semibold text-xs tracking-wider uppercase mobile-link">
+          Hire Me
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section with Animated Headline -->
+  <section id="hero" class="min-h-screen pt-36 pb-20 flex items-center justify-center relative z-10">
+    <div class="max-w-7xl mx-auto px-6 w-full grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+      
+      <!-- Left Column: Copy & Animated Title -->
+      <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
+        
+        <!-- Live Status Pill -->
+        <div class="inline-flex items-center gap-3 px-4 py-2 rounded-full bg-cyan-950/60 border border-cyan-500/30 text-cyan-300 text-xs font-medium tracking-wide shadow-lg shadow-cyan-500/10">
+          <span class="relative flex h-2.5 w-2.5">
+            <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-cyan-400 opacity-75"></span>
+            <span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-cyan-400"></span>
+          </span>
+          <span>Available for Freelance, Internships & AI Collaborations</span>
+        </div>
+
+        <!-- Hero Heading -->
+        <h1 class="text-4xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight text-white leading-[1.1]">
+          Hello, I'm <br />
+          <span class="text-white">Aqdas Atta</span> <br />
+          <span class="text-gradient" id="typedRole">Full-Stack Web Dev</span>
+        </h1>
+
+        <!-- Subheading -->
+        <p class="text-base sm:text-lg text-gray-400 max-w-2xl leading-relaxed">
+          Undergraduate Student at <span class="text-cyan-300 font-semibold underline decoration-cyan-500/50 underline-offset-4">GC University Faisalabad (GCUF)</span>. 
+          I engineer ultra-fast web architectures with <span class="text-white font-medium">React & Next.js</span> and augment them with modern <span class="text-purple-300 font-medium">Machine Learning & Generative AI</span> workflows.
+        </p>
+
+        <!-- CTA Buttons -->
+        <div class="flex flex-wrap items-center justify-center lg:justify-start gap-4 pt-3">
+          <a href="#projects" class="px-8 py-4 rounded-xl font-bold text-sm bg-gradient-to-r from-cyan-400 via-cyan-500 to-blue-600 text-black shadow-lg shadow-cyan-500/25 hover:shadow-cyan-400/50 hover:scale-105 active:scale-95 transition-all flex items-center gap-2.5">
+            <i class="fas fa-layer-group"></i> Explore Projects
+          </a>
+          <a href="#contact" class="px-8 py-4 rounded-xl font-bold text-sm bg-[#0E1424] border border-white/10 hover:border-cyan-400/50 text-gray-200 hover:text-white hover:scale-105 active:scale-95 transition-all flex items-center gap-2">
+            <i class="fas fa-envelope text-cyan-400"></i> Get In Touch
+          </a>
+          <a href="https://github.com/Anny-card" target="_blank" class="p-4 rounded-xl bg-[#0E1424] border border-white/10 hover:border-purple-400/50 text-gray-300 hover:text-white hover:scale-105 transition-all" title="View GitHub Anny-card">
+            <i class="fab fa-github text-xl"></i>
+          </a>
+        </div>
+
+        <!-- Tech Quick Ticker -->
+        <div class="pt-6 border-t border-white/10 flex flex-wrap items-center justify-center lg:justify-start gap-5 text-gray-400 text-xs font-mono">
+          <span class="text-gray-500 font-semibold uppercase tracking-wider">Arsenal:</span>
+          <span class="hover:text-cyan-400 transition-colors flex items-center gap-1.5"><i class="fab fa-react text-cyan-400 text-sm"></i> React/Next.js</span>
+          <span class="hover:text-green-400 transition-colors flex items-center gap-1.5"><i class="fab fa-node-js text-green-400 text-sm"></i> Node/Express</span>
+          <span class="hover:text-yellow-400 transition-colors flex items-center gap-1.5"><i class="fab fa-python text-yellow-400 text-sm"></i> Python/FastAPI</span>
+          <span class="hover:text-purple-400 transition-colors flex items-center gap-1.5"><i class="fas fa-brain text-purple-400 text-sm"></i> PyTorch/LangChain</span>
+        </div>
+      </div>
+
+      <!-- Right Column: Animated Interactive 3D Dev Card -->
+      <div class="lg:col-span-5 reveal">
+        <div class="tilt-card relative rounded-2xl bg-gradient-to-b from-cyan-500/20 via-purple-500/10 to-transparent p-[1px] glow-cyan">
+          
+          <!-- Inner Card Window -->
+          <div class="rounded-2xl bg-[#0B101D] p-5 sm:p-7 font-mono text-xs sm:text-sm border border-white/10 shadow-2xl relative overflow-hidden">
+            
+            <!-- Window Bar -->
+            <div class="flex items-center justify-between pb-4 border-b border-white/10 mb-4">
+              <div class="flex items-center gap-2">
+                <span class="w-3 h-3 rounded-full bg-red-500/80"></span>
+                <span class="w-3 h-3 rounded-full bg-yellow-500/80"></span>
+                <span class="w-3 h-3 rounded-full bg-green-500/80"></span>
+                <span class="ml-2 text-gray-500 text-xs">aqdas_atta.py</span>
+              </div>
+              <button onclick="copySnippet()" class="text-gray-400 hover:text-cyan-400 text-xs flex items-center gap-1 transition-colors px-2 py-1 rounded bg-white/5 border border-white/5">
+                <i class="fas fa-copy"></i> <span id="copyText">copy</span>
+              </button>
+            </div>
+
+            <!-- Code Content -->
+            <pre class="text-gray-300 leading-relaxed overflow-x-auto"><code id="codeSnippet"><span class="text-purple-400">class</span> <span class="text-cyan-300">SoftwareEngineer</span>:
+    <span class="text-purple-400">def</span> <span class="text-blue-400">__init__</span>(<span class="text-orange-300">self</span>):
+        <span class="text-orange-300">self</span>.name = <span class="text-green-300">"Aqdas Atta"</span>
+        <span class="text-orange-300">self</span>.github = <span class="text-green-300">"Anny-card"</span>
+        <span class="text-orange-300">self</span>.university = <span class="text-green-300">"GCUF, Faisalabad"</span>
+        <span class="text-orange-300">self</span>.domains = [
+            <span class="text-green-300">"Full-Stack Web Dev"</span>,
+            <span class="text-green-300">"Applied AI & LLMs"</span>
+        ]
+        <span class="text-orange-300">self</span>.stack = {
+            <span class="text-cyan-300">"frontend"</span>: [<span class="text-green-300">"React"</span>, <span class="text-green-300">"Next.js"</span>, <span class="text-green-300">"Tailwind"</span>],
+            <span class="text-cyan-300">"backend"</span>:  [<span class="text-green-300">"Node"</span>, <span class="text-green-300">"FastAPI"</span>, <span class="text-green-300">"MongoDB"</span>],
+            <span class="text-cyan-300">"ai_tools"</span>: [<span class="text-green-300">"PyTorch"</span>, <span class="text-green-300">"LangChain"</span>, <span class="text-green-300">"RAG"</span>]
+        }
+
+    <span class="text-purple-400">def</span> <span class="text-blue-400">build_future</span>(<span class="text-orange-300">self</span>):
+        <span class="text-purple-400">return</span> <span class="text-green-300">"Turning code into intelligence 🚀"</span>
+
+developer = <span class="text-cyan-300">SoftwareEngineer</span>()
+<span class="text-blue-400">print</span>(developer.build_future())</code></pre>
+
+            <!-- Card Bottom Live Ping -->
+            <div class="mt-4 pt-3 border-t border-white/5 flex items-center justify-between text-[11px] text-gray-500 font-mono">
+              <span class="flex items-center gap-1.5 text-emerald-400">
+                <span class="w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span> Online & Coding
+              </span>
+              <span>Python 3.11 • GCUF</span>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Animated Metrics Counter Banner -->
+  <section class="border-y border-white/10 bg-[#0E1424]/60 backdrop-blur-md py-12 relative z-10">
+    <div class="max-w-7xl mx-auto px-6 grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+      <div class="reveal">
+        <p class="text-4xl sm:text-5xl font-black text-cyan-400 font-mono counter" data-target="12">0</p>
+        <p class="text-xs sm:text-sm text-gray-400 mt-2 uppercase tracking-wider font-semibold">Web & AI Projects</p>
+      </div>
+      <div class="reveal">
+        <p class="text-4xl sm:text-5xl font-black text-purple-400 font-mono counter" data-target="16">0</p>
+        <p class="text-xs sm:text-sm text-gray-400 mt-2 uppercase tracking-wider font-semibold">Modern Tech Stack</p>
+      </div>
+      <div class="reveal">
+        <p class="text-4xl sm:text-5xl font-black text-emerald-400 font-mono">GCUF</p>
+        <p class="text-xs sm:text-sm text-gray-400 mt-2 uppercase tracking-wider font-semibold">Faisalabad Campus</p>
+      </div>
+      <div class="reveal">
+        <p class="text-4xl sm:text-5xl font-black text-pink-400 font-mono counter" data-target="100">0</p>
+        <p class="text-xs sm:text-sm text-gray-400 mt-2 uppercase tracking-wider font-semibold">% Passion & Dedication</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- About Me Section -->
+  <section id="about" class="py-28 relative z-10">
+    <div class="max-w-7xl mx-auto px-6">
+      
+      <!-- Section Title -->
+      <div class="text-center max-w-2xl mx-auto mb-20 space-y-3 reveal">
+        <span class="text-cyan-400 font-mono text-xs uppercase tracking-widest bg-cyan-950/60 px-3.5 py-1.5 rounded-full border border-cyan-500/20">
+          Profile Overview
+        </span>
+        <h2 class="text-3xl sm:text-5xl font-extrabold text-white">About Aqdas Atta</h2>
+        <p class="text-gray-400 text-sm sm:text-base">Connecting the dots between interactive modern web development and autonomous artificial intelligence.</p>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+        
+        <!-- About Narrative -->
+        <div class="lg:col-span-7 space-y-6 text-gray-300 leading-relaxed text-base reveal">
+          <p>
+            Hello there! I am <span class="text-white font-bold">Aqdas Atta</span>, a passionate software engineering & computer science student based in <span class="text-cyan-400 font-semibold">Faisalabad, Pakistan</span>, currently studying at <span class="text-cyan-400 font-semibold">Government College University Faisalabad (GCUF)</span>.
+          </p>
+          <p>
+            My engineering foundation is rooted in <span class="text-white font-semibold">Full-Stack Web Development</span>. Over the years, I've designed dynamic single-page web apps, high-throughput REST APIs, and responsive database architectures with <span class="text-cyan-300 font-mono">React, Next.js, Node.js, and MongoDB</span>.
+          </p>
+          <p>
+            As artificial intelligence rapidly transforms software, I've focused on becoming an <span class="text-purple-400 font-semibold">Applied AI & Machine Learning Developer</span>. I build intelligent user experiences using <span class="text-purple-300 font-mono">Python, PyTorch, LangChain, RAG (Retrieval-Augmented Generation)</span>, and Large Language Model (LLM) APIs.
+          </p>
+
+          <!-- 4 Grid Badges -->
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-4">
+            <div class="p-4 rounded-xl glass-card flex items-start gap-3.5 hover:-translate-y-1 transition-all">
+              <div class="w-10 h-10 rounded-lg bg-cyan-950 border border-cyan-500/30 flex items-center justify-center text-cyan-400 text-lg">
+                <i class="fas fa-university"></i>
+              </div>
+              <div>
+                <h4 class="text-white font-bold text-sm">GC University Faisalabad</h4>
+                <p class="text-gray-400 text-xs">BS Software Engineering / CS</p>
+              </div>
+            </div>
+
+            <div class="p-4 rounded-xl glass-card flex items-start gap-3.5 hover:-translate-y-1 transition-all">
+              <div class="w-10 h-10 rounded-lg bg-purple-950 border border-purple-500/30 flex items-center justify-center text-purple-400 text-lg">
+                <i class="fas fa-map-marker-alt"></i>
+              </div>
+              <div>
+                <h4 class="text-white font-bold text-sm">Location</h4>
+                <p class="text-gray-400 text-xs">Faisalabad, Punjab, Pakistan 🇵🇰</p>
+              </div>
+            </div>
+
+            <div class="p-4 rounded-xl glass-card flex items-start gap-3.5 hover:-translate-y-1 transition-all">
+              <div class="w-10 h-10 rounded-lg bg-emerald-950 border border-emerald-500/30 flex items-center justify-center text-emerald-400 text-lg">
+                <i class="fas fa-laptop-code"></i>
+              </div>
+              <div>
+                <h4 class="text-white font-bold text-sm">Focus Area</h4>
+                <p class="text-gray-400 text-xs">Web Apps + AI Agent Integration</p>
+              </div>
+            </div>
+
+            <div class="p-4 rounded-xl glass-card flex items-start gap-3.5 hover:-translate-y-1 transition-all">
+              <div class="w-10 h-10 rounded-lg bg-pink-950 border border-pink-500/30 flex items-center justify-center text-pink-400 text-lg">
+                <i class="fas fa-bolt"></i>
+              </div>
+              <div>
+                <h4 class="text-white font-bold text-sm">GitHub Handle</h4>
+                <p class="text-gray-400 text-xs font-mono">@Anny-card</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right Side: Proficiency & Skill Bars -->
+        <div class="lg:col-span-5 space-y-4 reveal">
+          <div class="p-7 rounded-2xl glass-card space-y-6 glow-purple">
+            <h3 class="text-lg font-bold text-white flex items-center gap-2">
+              <i class="fas fa-sliders-h text-purple-400"></i> Technical Proficiency
+            </h3>
+
+            <div class="space-y-5 text-sm">
+              <div class="space-y-1.5">
+                <div class="flex justify-between text-gray-300 font-medium">
+                  <span>Full-Stack Web (React, Next.js, Node)</span>
+                  <span class="text-cyan-400 font-mono font-bold">92%</span>
+                </div>
+                <div class="w-full h-2.5 bg-gray-800 rounded-full overflow-hidden p-0.5">
+                  <div class="h-full bg-gradient-to-r from-cyan-400 to-blue-500 rounded-full w-[92%] transition-all duration-1000"></div>
+                </div>
+              </div>
+
+              <div class="space-y-1.5">
+                <div class="flex justify-between text-gray-300 font-medium">
+                  <span>AI & Machine Learning (Python, PyTorch)</span>
+                  <span class="text-purple-400 font-mono font-bold">78%</span>
+                </div>
+                <div class="w-full h-2.5 bg-gray-800 rounded-full overflow-hidden p-0.5">
+                  <div class="h-full bg-gradient-to-r from-purple-500 to-pink-500 rounded-full w-[78%] transition-all duration-1000"></div>
+                </div>
+              </div>
+
+              <div class="space-y-1.5">
+                <div class="flex justify-between text-gray-300 font-medium">
+                  <span>API Development & FastAPI / Express</span>
+                  <span class="text-emerald-400 font-mono font-bold">88%</span>
+                </div>
+                <div class="w-full h-2.5 bg-gray-800 rounded-full overflow-hidden p-0.5">
+                  <div class="h-full bg-gradient-to-r from-emerald-400 to-teal-500 rounded-full w-[88%] transition-all duration-1000"></div>
+                </div>
+              </div>
+
+              <div class="space-y-1.5">
+                <div class="flex justify-between text-gray-300 font-medium">
+                  <span>Databases (MongoDB, PostgreSQL)</span>
+                  <span class="text-amber-400 font-mono font-bold">82%</span>
+                </div>
+                <div class="w-full h-2.5 bg-gray-800 rounded-full overflow-hidden p-0.5">
+                  <div class="h-full bg-gradient-to-r from-amber-400 to-orange-500 rounded-full w-[82%] transition-all duration-1000"></div>
+                </div>
+              </div>
+            </div>
+
+            <div class="pt-4 border-t border-white/10 text-center">
+              <a href="#contact" class="inline-flex items-center gap-2 text-xs font-bold text-cyan-400 hover:text-cyan-300 transition-colors uppercase tracking-wider">
+                Let's discuss an internship or project <i class="fas fa-arrow-right"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Technical Arsenal & Stack -->
+  <section id="skills" class="py-28 bg-[#070B12] relative z-10 border-y border-white/5">
+    <div class="max-w-7xl mx-auto px-6">
+      
+      <div class="text-center max-w-2xl mx-auto mb-20 space-y-3 reveal">
+        <span class="text-purple-400 font-mono text-xs uppercase tracking-widest bg-purple-950/60 px-3.5 py-1.5 rounded-full border border-purple-500/20">
+          Tools & Skills
+        </span>
+        <h2 class="text-3xl sm:text-5xl font-extrabold text-white">Technical Arsenal</h2>
+        <p class="text-gray-400 text-sm sm:text-base">Technologies I utilize to turn ideas into robust, production-ready code.</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        
+        <!-- Frontend Card -->
+        <div class="p-7 rounded-2xl glass-card hover:-translate-y-2 transition-all duration-300 group reveal">
+          <div class="w-14 h-14 rounded-2xl bg-cyan-950/80 border border-cyan-500/30 flex items-center justify-center text-cyan-400 text-2xl mb-6 group-hover:scale-110 transition-transform">
+            <i class="fas fa-code"></i>
+          </div>
+          <h3 class="text-xl font-bold text-white mb-2">Frontend</h3>
+          <p class="text-gray-400 text-xs mb-5 leading-relaxed">Developing interactive, intuitive, and lightning-fast user interfaces.</p>
+          <div class="flex flex-wrap gap-2">
+            <span class="px-3 py-1 rounded-lg bg-white/5 text-cyan-300 text-xs font-mono border border-white/5">React.js</span>
+            <span class="px-3 py-1 rounded-lg bg-white/5 text-cyan-300 text-xs font-mono border border-white/5">Next.js 14</span>
+            <span class="px-3 py-1 rounded-lg bg-white/5 text-cyan-300 text-xs font-mono border border-white/5">TypeScript</span>
+            <span class="px-3 py-1 rounded-lg bg-white/5 text-cyan-300 text-xs font-mono border border-white/5">Tailwind CSS</span>
+            <span class="px-3 py-1 rounded-lg bg-white/5 text-cyan-300 text-xs font-mono border border-white/5">HTML5 / CSS3</span>
+            <span class="px-3 py-1 rounded-lg bg-white/5 text-cyan-300 text-xs font-mono border border-white/5">JavaScript ES6+</span>
+          </div>
+        </div>
+
+        <!-- Backend Card -->
+        <div class="p-7 rounded-2xl glass-card hover:-translate-y-2 transition-all duration-300 group reveal">
+          <div class="w-14 h-14 rounded-2xl bg-emerald-950/80 border border-emerald-500/30 flex items-center justify-center text-emerald-400 text-2xl mb-6 group-hover:scale-110 transition-transform">
+            <i class="fas fa-server"></i>
+          </div>
+          <h3 class="text-xl font-bold text-white mb-2">Backend & APIs</h3>
+          <p class="text-gray-400 text-xs mb-5 leading-relaxed">Secure microservices, REST APIs, and backend server business logic.</p>
+          <div class="flex flex-wrap gap-2">
+            <span class="px-3 py-1 rounded-lg bg-white/5 text-emerald-300 text-xs font-mono border border-white/5">Node.js</span>
+            <span class="px-3 py-1 rounded-lg bg-white/5 text-emerald-300 text-xs font-mono border border-white/5">Express.js</span>
+            <span class="px-3 py-1 rounded-lg bg-white/5 text-emerald-300 text-xs font-mono border border-white/5">Python</span>
+            <span class="px-3 py-1 rounded-lg bg-white/5 text-emerald-300 text-xs font-mono border border-white/5">FastAPI</span>
+            <span class="px-3 py-1 rounded-lg bg-white/5 text-emerald-300 text-xs font-mono border border-white/5">Flask</span>
+            <span class="px-3 py-1 rounded-lg bg-white/5 text-emerald-300 text-xs font-mono border border-white/5">RESTful APIs</span>
+          </div>
+        </div>
+
+        <!-- AI & ML Card -->
+        <div class="p-7 rounded-2xl glass-card hover:-translate-y-2 transition-all duration-300 group reveal">
+          <div class="w-14 h-14 rounded-2xl bg-purple-950/80 border border-purple-500/30 flex items-center justify-center text-purple-400 text-2xl mb-6 group-hover:scale-110 transition-transform">
+            <i class="fas fa-brain"></i>
+          </div>
+          <h3 class="text-xl font-bold text-white mb-2">AI & Machine Learning</h3>
+          <p class="text-gray-400 text-xs mb-5 leading-relaxed">Infusing applications with deep learning models and Generative AI pipelines.</p>
+          <div class="flex flex-wrap gap-2">
+            <span class="px-3 py-1 rounded-lg bg-white/5 text-purple-300 text-xs font-mono border border-white/5">PyTorch</span>
+            <span class="px-3 py-1 rounded-lg bg-white/5 text-purple-300 text-xs font-mono border border-white/5">LangChain</span>
+            <span class="px-3 py-1 rounded-lg bg-white/5 text-purple-300 text-xs font-mono border border-white/5">Scikit-Learn</span>
+            <span class="px-3 py-1 rounded-lg bg-white/5 text-purple-300 text-xs font-mono border border-white/5">NumPy & Pandas</span>
+            <span class="px-3 py-1 rounded-lg bg-white/5 text-purple-300 text-xs font-mono border border-white/5">Gemini & OpenAI</span>
+            <span class="px-3 py-1 rounded-lg bg-white/5 text-purple-300 text-xs font-mono border border-white/5">RAG Pipelines</span>
+          </div>
+        </div>
+
+        <!-- Databases & Tools Card -->
+        <div class="p-7 rounded-2xl glass-card hover:-translate-y-2 transition-all duration-300 group reveal">
+          <div class="w-14 h-14 rounded-2xl bg-amber-950/80 border border-amber-500/30 flex items-center justify-center text-amber-400 text-2xl mb-6 group-hover:scale-110 transition-transform">
+            <i class="fas fa-database"></i>
+          </div>
+          <h3 class="text-xl font-bold text-white mb-2">Data & Deployment</h3>
+          <p class="text-gray-400 text-xs mb-5 leading-relaxed">Persistent relational/NoSQL storage and cloud containerization tools.</p>
+          <div class="flex flex-wrap gap-2">
+            <span class="px-3 py-1 rounded-lg bg-white/5 text-amber-300 text-xs font-mono border border-white/5">MongoDB</span>
+            <span class="px-3 py-1 rounded-lg bg-white/5 text-amber-300 text-xs font-mono border border-white/5">PostgreSQL</span>
+            <span class="px-3 py-1 rounded-lg bg-white/5 text-amber-300 text-xs font-mono border border-white/5">Git & GitHub</span>
+            <span class="px-3 py-1 rounded-lg bg-white/5 text-amber-300 text-xs font-mono border border-white/5">Docker</span>
+            <span class="px-3 py-1 rounded-lg bg-white/5 text-amber-300 text-xs font-mono border border-white/5">Postman</span>
+            <span class="px-3 py-1 rounded-lg bg-white/5 text-amber-300 text-xs font-mono border border-white/5">Vercel</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Featured Projects Gallery with Animated Filter -->
+  <section id="projects" class="py-28 relative z-10">
+    <div class="max-w-7xl mx-auto px-6">
+      
+      <div class="text-center max-w-2xl mx-auto mb-14 space-y-3 reveal">
+        <span class="text-cyan-400 font-mono text-xs uppercase tracking-widest bg-cyan-950/60 px-3.5 py-1.5 rounded-full border border-cyan-500/20">
+          Handcrafted Work
+        </span>
+        <h2 class="text-3xl sm:text-5xl font-extrabold text-white">Featured Projects</h2>
+        <p class="text-gray-400 text-sm sm:text-base">Real-world applications spanning intelligent AI tools, SaaS platforms, and full-stack systems.</p>
+        
+        <!-- Animated Filter Pills -->
+        <div class="flex items-center justify-center gap-2 pt-6 flex-wrap">
+          <button onclick="filterProjects('all')" class="project-filter-btn px-5 py-2 rounded-full text-xs font-bold border border-cyan-400/50 bg-cyan-400/15 text-cyan-300 transition-all cursor-pointer" data-category="all">
+            All Projects
+          </button>
+          <button onclick="filterProjects('ai')" class="project-filter-btn px-5 py-2 rounded-full text-xs font-bold border border-white/10 bg-[#0E1424] text-gray-400 hover:text-white transition-all cursor-pointer" data-category="ai">
+            🤖 AI & Machine Learning
+          </button>
+          <button onclick="filterProjects('web')" class="project-filter-btn px-5 py-2 rounded-full text-xs font-bold border border-white/10 bg-[#0E1424] text-gray-400 hover:text-white transition-all cursor-pointer" data-category="web">
+            💻 Web Development
+          </button>
+          <button onclick="filterProjects('fullstack')" class="project-filter-btn px-5 py-2 rounded-full text-xs font-bold border border-white/10 bg-[#0E1424] text-gray-400 hover:text-white transition-all cursor-pointer" data-category="fullstack">
+            ⚡ Full-Stack SaaS
+          </button>
+        </div>
+      </div>
+
+      <!-- Projects Grid -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="projectsGrid">
+        
+        <!-- Project 1: AI Docs & Knowledge Assistant -->
+        <div class="project-card tilt-card rounded-2xl glass-card overflow-hidden hover:border-cyan-400/50 hover:-translate-y-2 transition-all duration-300 flex flex-col reveal" data-cat="ai fullstack">
+          <div class="h-52 bg-gradient-to-tr from-cyan-950 via-[#0E1424] to-gray-900 flex items-center justify-center relative p-6 border-b border-white/10 overflow-hidden group">
+            <div class="w-16 h-16 rounded-2xl bg-cyan-500/20 border border-cyan-400/40 flex items-center justify-center text-cyan-400 text-3xl group-hover:scale-110 transition-transform">
+              <i class="fas fa-robot"></i>
+            </div>
+            <span class="absolute top-4 right-4 px-3 py-1 rounded-full bg-cyan-950/90 text-cyan-300 text-xs font-mono border border-cyan-500/30">
+              RAG + AI
+            </span>
+          </div>
+          <div class="p-6 flex-1 flex flex-col justify-between space-y-5">
+            <div>
+              <h3 class="text-xl font-bold text-white hover:text-cyan-400 transition-colors">AI Docs & Knowledge Assistant</h3>
+              <p class="text-gray-400 text-xs sm:text-sm mt-2.5 leading-relaxed">
+                Full-stack conversational application with RAG (Retrieval-Augmented Generation) allowing users to upload custom PDFs and query them via vector embeddings and Gemini API.
+              </p>
+            </div>
+            <div class="space-y-4">
+              <div class="flex flex-wrap gap-1.5">
+                <span class="px-2.5 py-1 rounded-md bg-white/5 text-cyan-300 text-xs font-mono">Next.js 14</span>
+                <span class="px-2.5 py-1 rounded-md bg-white/5 text-cyan-300 text-xs font-mono">FastAPI</span>
+                <span class="px-2.5 py-1 rounded-md bg-white/5 text-cyan-300 text-xs font-mono">LangChain</span>
+                <span class="px-2.5 py-1 rounded-md bg-white/5 text-cyan-300 text-xs font-mono">ChromaDB</span>
+              </div>
+              <div class="flex items-center justify-between pt-3 border-t border-white/10">
+                <a href="https://github.com/Anny-card/ai-smart-assistant" target="_blank" class="text-xs font-semibold text-gray-300 hover:text-cyan-400 flex items-center gap-1.5 transition-colors">
+                  <i class="fab fa-github"></i> Repository
+                </a>
+                <a href="https://github.com/Anny-card" target="_blank" class="text-xs font-bold text-cyan-400 hover:text-cyan-300 flex items-center gap-1 transition-colors">
+                  Live Demo <i class="fas fa-external-link-alt text-[10px]"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 2: IntelliCommerce Platform -->
+        <div class="project-card tilt-card rounded-2xl glass-card overflow-hidden hover:border-purple-400/50 hover:-translate-y-2 transition-all duration-300 flex flex-col reveal" data-cat="web fullstack">
+          <div class="h-52 bg-gradient-to-tr from-purple-950 via-[#0E1424] to-gray-900 flex items-center justify-center relative p-6 border-b border-white/10 overflow-hidden group">
+            <div class="w-16 h-16 rounded-2xl bg-purple-500/20 border border-purple-400/40 flex items-center justify-center text-purple-400 text-3xl group-hover:scale-110 transition-transform">
+              <i class="fas fa-shopping-bag"></i>
+            </div>
+            <span class="absolute top-4 right-4 px-3 py-1 rounded-full bg-purple-950/90 text-purple-300 text-xs font-mono border border-purple-500/30">
+              E-Commerce SaaS
+            </span>
+          </div>
+          <div class="p-6 flex-1 flex flex-col justify-between space-y-5">
+            <div>
+              <h3 class="text-xl font-bold text-white hover:text-purple-400 transition-colors">IntelliCommerce Platform</h3>
+              <p class="text-gray-400 text-xs sm:text-sm mt-2.5 leading-relaxed">
+                Full-stack storefront with AI-driven product recommendations, JWT secure authentication, Stripe checkout processing, and real-time inventory management.
+              </p>
+            </div>
+            <div class="space-y-4">
+              <div class="flex flex-wrap gap-1.5">
+                <span class="px-2.5 py-1 rounded-md bg-white/5 text-purple-300 text-xs font-mono">React</span>
+                <span class="px-2.5 py-1 rounded-md bg-white/5 text-purple-300 text-xs font-mono">Node.js</span>
+                <span class="px-2.5 py-1 rounded-md bg-white/5 text-purple-300 text-xs font-mono">Express</span>
+                <span class="px-2.5 py-1 rounded-md bg-white/5 text-purple-300 text-xs font-mono">MongoDB</span>
+              </div>
+              <div class="flex items-center justify-between pt-3 border-t border-white/10">
+                <a href="https://github.com/Anny-card/intellicommerce" target="_blank" class="text-xs font-semibold text-gray-300 hover:text-purple-400 flex items-center gap-1.5 transition-colors">
+                  <i class="fab fa-github"></i> Repository
+                </a>
+                <a href="https://github.com/Anny-card" target="_blank" class="text-xs font-bold text-purple-400 hover:text-purple-300 flex items-center gap-1 transition-colors">
+                  Live Demo <i class="fas fa-external-link-alt text-[10px]"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 3: AI Visual Inspector -->
+        <div class="project-card tilt-card rounded-2xl glass-card overflow-hidden hover:border-pink-400/50 hover:-translate-y-2 transition-all duration-300 flex flex-col reveal" data-cat="ai">
+          <div class="h-52 bg-gradient-to-tr from-pink-950 via-[#0E1424] to-gray-900 flex items-center justify-center relative p-6 border-b border-white/10 overflow-hidden group">
+            <div class="w-16 h-16 rounded-2xl bg-pink-500/20 border border-pink-400/40 flex items-center justify-center text-pink-400 text-3xl group-hover:scale-110 transition-transform">
+              <i class="fas fa-eye"></i>
+            </div>
+            <span class="absolute top-4 right-4 px-3 py-1 rounded-full bg-pink-950/90 text-pink-300 text-xs font-mono border border-pink-500/30">
+              Computer Vision
+            </span>
+          </div>
+          <div class="p-6 flex-1 flex flex-col justify-between space-y-5">
+            <div>
+              <h3 class="text-xl font-bold text-white hover:text-pink-400 transition-colors">DeepVision - AI Image Classifier</h3>
+              <p class="text-gray-400 text-xs sm:text-sm mt-2.5 leading-relaxed">
+                Interactive web application powered by a PyTorch convolutional neural network (CNN) for real-time visual classification, bounding box detection, and probability scoring.
+              </p>
+            </div>
+            <div class="space-y-4">
+              <div class="flex flex-wrap gap-1.5">
+                <span class="px-2.5 py-1 rounded-md bg-white/5 text-pink-300 text-xs font-mono">PyTorch</span>
+                <span class="px-2.5 py-1 rounded-md bg-white/5 text-pink-300 text-xs font-mono">Python</span>
+                <span class="px-2.5 py-1 rounded-md bg-white/5 text-pink-300 text-xs font-mono">Flask</span>
+                <span class="px-2.5 py-1 rounded-md bg-white/5 text-pink-300 text-xs font-mono">OpenCV</span>
+              </div>
+              <div class="flex items-center justify-between pt-3 border-t border-white/10">
+                <a href="https://github.com/Anny-card/ai-image-classifier" target="_blank" class="text-xs font-semibold text-gray-300 hover:text-pink-400 flex items-center gap-1.5 transition-colors">
+                  <i class="fab fa-github"></i> Repository
+                </a>
+                <a href="https://github.com/Anny-card" target="_blank" class="text-xs font-bold text-pink-400 hover:text-pink-300 flex items-center gap-1 transition-colors">
+                  Live Demo <i class="fas fa-external-link-alt text-[10px]"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 4: TaskMatrix SaaS -->
+        <div class="project-card tilt-card rounded-2xl glass-card overflow-hidden hover:border-amber-400/50 hover:-translate-y-2 transition-all duration-300 flex flex-col reveal" data-cat="web fullstack">
+          <div class="h-52 bg-gradient-to-tr from-amber-950 via-[#0E1424] to-gray-900 flex items-center justify-center relative p-6 border-b border-white/10 overflow-hidden group">
+            <div class="w-16 h-16 rounded-2xl bg-amber-500/20 border border-amber-400/40 flex items-center justify-center text-amber-400 text-3xl group-hover:scale-110 transition-transform">
+              <i class="fas fa-columns"></i>
+            </div>
+            <span class="absolute top-4 right-4 px-3 py-1 rounded-full bg-amber-950/90 text-amber-300 text-xs font-mono border border-amber-500/30">
+              Productivity SaaS
+            </span>
+          </div>
+          <div class="p-6 flex-1 flex flex-col justify-between space-y-5">
+            <div>
+              <h3 class="text-xl font-bold text-white hover:text-amber-400 transition-colors">TaskMatrix - Agile PM Platform</h3>
+              <p class="text-gray-400 text-xs sm:text-sm mt-2.5 leading-relaxed">
+                Collaborative project management dashboard featuring interactive Kanban drag-and-drop boards, live WebSocket updates, and team role-based permissions.
+              </p>
+            </div>
+            <div class="space-y-4">
+              <div class="flex flex-wrap gap-1.5">
+                <span class="px-2.5 py-1 rounded-md bg-white/5 text-amber-300 text-xs font-mono">Next.js</span>
+                <span class="px-2.5 py-1 rounded-md bg-white/5 text-amber-300 text-xs font-mono">TypeScript</span>
+                <span class="px-2.5 py-1 rounded-md bg-white/5 text-amber-300 text-xs font-mono">PostgreSQL</span>
+                <span class="px-2.5 py-1 rounded-md bg-white/5 text-amber-300 text-xs font-mono">Prisma</span>
+              </div>
+              <div class="flex items-center justify-between pt-3 border-t border-white/10">
+                <a href="https://github.com/Anny-card/taskmatrix-saas" target="_blank" class="text-xs font-semibold text-gray-300 hover:text-amber-400 flex items-center gap-1.5 transition-colors">
+                  <i class="fab fa-github"></i> Repository
+                </a>
+                <a href="https://github.com/Anny-card" target="_blank" class="text-xs font-bold text-amber-400 hover:text-amber-300 flex items-center gap-1 transition-colors">
+                  Live Demo <i class="fas fa-external-link-alt text-[10px]"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 5: CodeSensei AI -->
+        <div class="project-card tilt-card rounded-2xl glass-card overflow-hidden hover:border-blue-400/50 hover:-translate-y-2 transition-all duration-300 flex flex-col reveal" data-cat="ai web">
+          <div class="h-52 bg-gradient-to-tr from-blue-950 via-[#0E1424] to-gray-900 flex items-center justify-center relative p-6 border-b border-white/10 overflow-hidden group">
+            <div class="w-16 h-16 rounded-2xl bg-blue-500/20 border border-blue-400/40 flex items-center justify-center text-blue-400 text-3xl group-hover:scale-110 transition-transform">
+              <i class="fas fa-terminal"></i>
+            </div>
+            <span class="absolute top-4 right-4 px-3 py-1 rounded-full bg-blue-950/90 text-blue-300 text-xs font-mono border border-blue-500/30">
+              Developer Tool
+            </span>
+          </div>
+          <div class="p-6 flex-1 flex flex-col justify-between space-y-5">
+            <div>
+              <h3 class="text-xl font-bold text-white hover:text-blue-400 transition-colors">CodeSensei - AI Code Reviewer</h3>
+              <p class="text-gray-400 text-xs sm:text-sm mt-2.5 leading-relaxed">
+                Developer productivity tool that inspects snippets for security bugs, time complexity analysis, and suggests idiomatic refactoring via Gemini API.
+              </p>
+            </div>
+            <div class="space-y-4">
+              <div class="flex flex-wrap gap-1.5">
+                <span class="px-2.5 py-1 rounded-md bg-white/5 text-blue-300 text-xs font-mono">React</span>
+                <span class="px-2.5 py-1 rounded-md bg-white/5 text-blue-300 text-xs font-mono">Gemini API</span>
+                <span class="px-2.5 py-1 rounded-md bg-white/5 text-blue-300 text-xs font-mono">Node.js</span>
+                <span class="px-2.5 py-1 rounded-md bg-white/5 text-blue-300 text-xs font-mono">Tailwind</span>
+              </div>
+              <div class="flex items-center justify-between pt-3 border-t border-white/10">
+                <a href="https://github.com/Anny-card" target="_blank" class="text-xs font-semibold text-gray-300 hover:text-blue-400 flex items-center gap-1.5 transition-colors">
+                  <i class="fab fa-github"></i> Repository
+                </a>
+                <a href="https://github.com/Anny-card" target="_blank" class="text-xs font-bold text-blue-400 hover:text-blue-300 flex items-center gap-1 transition-colors">
+                  Live Demo <i class="fas fa-external-link-alt text-[10px]"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 6: GCUF Portal Concept -->
+        <div class="project-card tilt-card rounded-2xl glass-card overflow-hidden hover:border-emerald-400/50 hover:-translate-y-2 transition-all duration-300 flex flex-col reveal" data-cat="web">
+          <div class="h-52 bg-gradient-to-tr from-emerald-950 via-[#0E1424] to-gray-900 flex items-center justify-center relative p-6 border-b border-white/10 overflow-hidden group">
+            <div class="w-16 h-16 rounded-2xl bg-emerald-500/20 border border-emerald-400/40 flex items-center justify-center text-emerald-400 text-3xl group-hover:scale-110 transition-transform">
+              <i class="fas fa-graduation-cap"></i>
+            </div>
+            <span class="absolute top-4 right-4 px-3 py-1 rounded-full bg-emerald-950/90 text-emerald-300 text-xs font-mono border border-emerald-500/30">
+              Campus Project
+            </span>
+          </div>
+          <div class="p-6 flex-1 flex flex-col justify-between space-y-5">
+            <div>
+              <h3 class="text-xl font-bold text-white hover:text-emerald-400 transition-colors">GCUF Academic Portal</h3>
+              <p class="text-gray-400 text-xs sm:text-sm mt-2.5 leading-relaxed">
+                Streamlined academic portal prototype designed for students to track coursework, grade distributions, and automated attendance alerts.
+              </p>
+            </div>
+            <div class="space-y-4">
+              <div class="flex flex-wrap gap-1.5">
+                <span class="px-2.5 py-1 rounded-md bg-white/5 text-emerald-300 text-xs font-mono">React</span>
+                <span class="px-2.5 py-1 rounded-md bg-white/5 text-emerald-300 text-xs font-mono">Express</span>
+                <span class="px-2.5 py-1 rounded-md bg-white/5 text-emerald-300 text-xs font-mono">MongoDB</span>
+                <span class="px-2.5 py-1 rounded-md bg-white/5 text-emerald-300 text-xs font-mono">Tailwind</span>
+              </div>
+              <div class="flex items-center justify-between pt-3 border-t border-white/10">
+                <a href="https://github.com/Anny-card" target="_blank" class="text-xs font-semibold text-gray-300 hover:text-emerald-400 flex items-center gap-1.5 transition-colors">
+                  <i class="fab fa-github"></i> Repository
+                </a>
+                <a href="https://github.com/Anny-card" target="_blank" class="text-xs font-bold text-emerald-400 hover:text-emerald-300 flex items-center gap-1 transition-colors">
+                  Live Demo <i class="fas fa-external-link-alt text-[10px]"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Interactive Timeline / Roadmap -->
+  <section id="experience" class="py-28 bg-[#070B12] relative z-10 border-y border-white/5">
+    <div class="max-w-7xl mx-auto px-6">
+      
+      <div class="text-center max-w-2xl mx-auto mb-20 space-y-3 reveal">
+        <span class="text-cyan-400 font-mono text-xs uppercase tracking-widest bg-cyan-950/60 px-3.5 py-1.5 rounded-full border border-cyan-500/20">
+          Career Trajectory
+        </span>
+        <h2 class="text-3xl sm:text-5xl font-extrabold text-white">Dev & AI Roadmap</h2>
+        <p class="text-gray-400 text-sm sm:text-base">My structured evolutionary path from foundational web development to enterprise AI engineering.</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        
+        <!-- Phase 1 -->
+        <div class="p-6 rounded-2xl glass-card border-l-4 border-l-emerald-400 relative reveal">
+          <div class="flex items-center justify-between mb-4">
+            <span class="text-xs font-mono px-3 py-1 rounded-full bg-emerald-950 text-emerald-300 border border-emerald-500/30 font-bold">Phase 1 • Solidified</span>
+            <i class="fas fa-check-double text-emerald-400"></i>
+          </div>
+          <h3 class="text-lg font-bold text-white mb-2">Web Foundations & React</h3>
+          <p class="text-gray-400 text-xs leading-relaxed">
+            Proficiency in modern JavaScript (ES6+), responsive layout with Tailwind CSS, React component architecture, and client-side state management.
+          </p>
+        </div>
+
+        <!-- Phase 2 -->
+        <div class="p-6 rounded-2xl glass-card border-l-4 border-l-emerald-400 relative reveal">
+          <div class="flex items-center justify-between mb-4">
+            <span class="text-xs font-mono px-3 py-1 rounded-full bg-emerald-950 text-emerald-300 border border-emerald-500/30 font-bold">Phase 2 • Active</span>
+            <i class="fas fa-check-double text-emerald-400"></i>
+          </div>
+          <h3 class="text-lg font-bold text-white mb-2">Full-Stack & APIs</h3>
+          <p class="text-gray-400 text-xs leading-relaxed">
+            Constructing REST APIs with Node.js/Express & FastAPI, databases (MongoDB, PostgreSQL), JWT auth, and Server-Side Rendering with Next.js 14.
+          </p>
+        </div>
+
+        <!-- Phase 3 -->
+        <div class="p-6 rounded-2xl glass-card border-l-4 border-l-cyan-400 relative glow-cyan reveal">
+          <div class="flex items-center justify-between mb-4">
+            <span class="text-xs font-mono px-3 py-1 rounded-full bg-cyan-950 text-cyan-300 border border-cyan-500/40 font-bold flex items-center gap-1.5">
+              <span class="w-1.5 h-1.5 rounded-full bg-cyan-400 animate-ping"></span> Phase 3 • Current Focus
+            </span>
+            <i class="fas fa-brain text-cyan-400"></i>
+          </div>
+          <h3 class="text-lg font-bold text-white mb-2">Applied AI & GenAI Systems</h3>
+          <p class="text-gray-400 text-xs leading-relaxed">
+            Building RAG search pipelines with vector databases (ChromaDB), LangChain orchestration, and integrating Gemini & OpenAI APIs into full-stack web products.
+          </p>
+        </div>
+
+        <!-- Phase 4 -->
+        <div class="p-6 rounded-2xl glass-card border-l-4 border-l-purple-400 relative reveal">
+          <div class="flex items-center justify-between mb-4">
+            <span class="text-xs font-mono px-3 py-1 rounded-full bg-purple-950 text-purple-300 border border-purple-500/30 font-bold">Phase 4 • Next Goal</span>
+            <i class="fas fa-rocket text-purple-400"></i>
+          </div>
+          <h3 class="text-lg font-bold text-white mb-2">Deep Learning & MLOps</h3>
+          <p class="text-gray-400 text-xs leading-relaxed">
+            Fine-tuning foundation models with PyTorch, Docker containerization of ML pipelines, automated cloud CI/CD, and scalable model serving.
+          </p>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Interactive Contact Section -->
+  <section id="contact" class="py-28 relative z-10">
+    <div class="max-w-7xl mx-auto px-6">
+      
+      <div class="text-center max-w-2xl mx-auto mb-20 space-y-3 reveal">
+        <span class="text-cyan-400 font-mono text-xs uppercase tracking-widest bg-cyan-950/60 px-3.5 py-1.5 rounded-full border border-cyan-500/20">
+          Get In Touch
+        </span>
+        <h2 class="text-3xl sm:text-5xl font-extrabold text-white">Let's Build Something Great</h2>
+        <p class="text-gray-400 text-sm sm:text-base">Have an opportunity, a project idea, or just want to discuss tech and AI? Reach out anytime!</p>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+        
+        <!-- Left: Contact Details Card -->
+        <div class="lg:col-span-5 space-y-6 reveal">
+          <div class="p-8 rounded-2xl glass-card space-y-6">
+            <h3 class="text-xl font-bold text-white">Direct Connect</h3>
+            <p class="text-gray-400 text-sm leading-relaxed">
+              I'm actively seeking internship positions, remote freelance work, and open-source collaborative projects. Let's start a conversation!
+            </p>
+
+            <div class="space-y-4">
+              <!-- Email -->
+              <a href="mailto:aqdasatta@gmail.com" class="flex items-center gap-4 p-4 rounded-xl bg-white/5 hover:bg-white/10 border border-white/5 hover:border-cyan-400/40 transition-all group">
+                <div class="w-12 h-12 rounded-xl bg-cyan-950/80 border border-cyan-500/30 flex items-center justify-center text-cyan-400 text-xl group-hover:scale-110 transition-transform">
+                  <i class="fas fa-envelope"></i>
+                </div>
+                <div>
+                  <p class="text-xs text-gray-400 font-mono">Email Address</p>
+                  <p class="text-sm font-semibold text-white group-hover:text-cyan-300 transition-colors">aqdasatta@gmail.com</p>
+                </div>
+              </a>
+
+              <!-- GitHub -->
+              <a href="https://github.com/Anny-card" target="_blank" class="flex items-center gap-4 p-4 rounded-xl bg-white/5 hover:bg-white/10 border border-white/5 hover:border-purple-400/40 transition-all group">
+                <div class="w-12 h-12 rounded-xl bg-purple-950/80 border border-purple-500/30 flex items-center justify-center text-purple-400 text-xl group-hover:scale-110 transition-transform">
+                  <i class="fab fa-github"></i>
+                </div>
+                <div>
+                  <p class="text-xs text-gray-400 font-mono">GitHub Profile</p>
+                  <p class="text-sm font-semibold text-white group-hover:text-purple-300 transition-colors">github.com/Anny-card</p>
+                </div>
+              </a>
+
+              <!-- LinkedIn -->
+              <a href="https://linkedin.com/in/aqdasatta" target="_blank" class="flex items-center gap-4 p-4 rounded-xl bg-white/5 hover:bg-white/10 border border-white/5 hover:border-blue-400/40 transition-all group">
+                <div class="w-12 h-12 rounded-xl bg-blue-950/80 border border-blue-500/30 flex items-center justify-center text-blue-400 text-xl group-hover:scale-110 transition-transform">
+                  <i class="fab fa-linkedin-in"></i>
+                </div>
+                <div>
+                  <p class="text-xs text-gray-400 font-mono">LinkedIn Network</p>
+                  <p class="text-sm font-semibold text-white group-hover:text-blue-300 transition-colors">linkedin.com/in/aqdasatta</p>
+                </div>
+              </a>
+
+              <!-- Location -->
+              <div class="flex items-center gap-4 p-4 rounded-xl bg-white/5 border border-white/5">
+                <div class="w-12 h-12 rounded-xl bg-pink-950/80 border border-pink-500/30 flex items-center justify-center text-pink-400 text-xl">
+                  <i class="fas fa-location-dot"></i>
+                </div>
+                <div>
+                  <p class="text-xs text-gray-400 font-mono">Campus & City</p>
+                  <p class="text-sm font-semibold text-white">GC University, Faisalabad, Pakistan</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right: Animated Contact Form -->
+        <div class="lg:col-span-7 reveal">
+          <div class="p-8 sm:p-10 rounded-2xl glass-card relative glow-cyan">
+            <h3 class="text-2xl font-bold text-white mb-6 flex items-center gap-3">
+              <i class="fas fa-paper-plane text-cyan-400"></i> Send a Message
+            </h3>
+
+            <form id="contactForm" onsubmit="handleFormSubmit(event)" class="space-y-5">
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                <div>
+                  <label class="block text-xs font-mono uppercase tracking-wider text-gray-400 mb-2">Your Name</label>
+                  <input type="text" id="senderName" required placeholder="John Doe" class="w-full px-4 py-3.5 rounded-xl bg-black/40 border border-white/10 text-white placeholder-gray-500 focus:outline-none focus:border-cyan-400 transition-colors text-sm" />
+                </div>
+                <div>
+                  <label class="block text-xs font-mono uppercase tracking-wider text-gray-400 mb-2">Email Address</label>
+                  <input type="email" id="senderEmail" required placeholder="john@example.com" class="w-full px-4 py-3.5 rounded-xl bg-black/40 border border-white/10 text-white placeholder-gray-500 focus:outline-none focus:border-cyan-400 transition-colors text-sm" />
+                </div>
+              </div>
+
+              <div>
+                <label class="block text-xs font-mono uppercase tracking-wider text-gray-400 mb-2">Subject / Topic</label>
+                <input type="text" id="subjectLine" required placeholder="Web Development / AI Project Collaboration" class="w-full px-4 py-3.5 rounded-xl bg-black/40 border border-white/10 text-white placeholder-gray-500 focus:outline-none focus:border-cyan-400 transition-colors text-sm" />
+              </div>
+
+              <div>
+                <label class="block text-xs font-mono uppercase tracking-wider text-gray-400 mb-2">Your Message</label>
+                <textarea rows="4" id="messageBody" required placeholder="Tell me about your requirements, project details, or questions..." class="w-full px-4 py-3.5 rounded-xl bg-black/40 border border-white/10 text-white placeholder-gray-500 focus:outline-none focus:border-cyan-400 transition-colors text-sm"></textarea>
+              </div>
+
+              <button type="submit" id="submitBtn" class="w-full py-4 rounded-xl font-bold text-sm bg-gradient-to-r from-cyan-400 via-cyan-500 to-blue-600 text-black hover:opacity-95 hover:shadow-lg hover:shadow-cyan-500/25 active:scale-95 transition-all flex items-center justify-center gap-2 cursor-pointer">
+                <span>Send Message</span> <i class="fas fa-paper-plane text-xs"></i>
+              </button>
+
+              <!-- Live Toast Message -->
+              <div id="formFeedback" class="hidden p-4 rounded-xl bg-emerald-950/90 border border-emerald-500/50 text-emerald-300 text-sm text-center font-medium">
+                <i class="fas fa-check-circle mr-1"></i> Thank you! Your message has been prepared. Aqdas will get back to you shortly!
+              </div>
+            </form>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="border-t border-white/10 bg-[#05080E] py-12 text-center text-gray-400 text-xs relative z-10">
+    <div class="max-w-7xl mx-auto px-6 flex flex-col sm:flex-row items-center justify-between gap-6">
+      
+      <div class="flex items-center gap-3">
+        <div class="w-8 h-8 rounded-lg bg-gradient-to-tr from-cyan-400 to-purple-600 flex items-center justify-center text-black font-mono font-bold text-xs">
+          AA
+        </div>
+        <div class="text-left">
+          <p class="font-bold text-white">Aqdas Atta</p>
+          <p class="text-gray-500 text-[11px]">GC University Faisalabad (GCUF) • @Anny-card</p>
+        </div>
+      </div>
+
+      <p class="text-gray-500 text-xs">
+        Crafted with <i class="fas fa-heart text-red-500 mx-1"></i>, Tailwind CSS & Neural Canvas Animations.
+      </p>
+
+      <div class="flex items-center gap-5 text-base">
+        <a href="https://github.com/Anny-card" target="_blank" class="hover:text-cyan-400 transition-colors" title="GitHub"><i class="fab fa-github"></i></a>
+        <a href="https://linkedin.com/in/aqdasatta" target="_blank" class="hover:text-cyan-400 transition-colors" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+        <a href="mailto:aqdasatta@gmail.com" class="hover:text-cyan-400 transition-colors" title="Email"><i class="fas fa-envelope"></i></a>
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- ========================================== -->
+  <!-- PROFESSIONAL JAVASCRIPT ANIMATIONS ENGINE  -->
+  <!-- ========================================== -->
+  <script>
+    // 1. NEURAL NETWORK CANVAS ANIMATION (Nodes & Connecting Lines)
+    const canvas = document.getElementById('neuralCanvas');
+    const ctx = canvas.getContext('2d');
+    let width, height, particles;
+
+    function resizeCanvas() {
+      width = canvas.width = window.innerWidth;
+      height = canvas.height = window.innerHeight;
+      initParticles();
+    }
+
+    const mouse = { x: null, y: null, radius: 150 };
+
+    window.addEventListener('mousemove', (e) => {
+      mouse.x = e.clientX;
+      mouse.y = e.clientY;
+
+      // Move Cursor Glow
+      const glow = document.getElementById('cursorGlow');
+      glow.style.left = `${e.clientX}px`;
+      glow.style.top = `${e.clientY}px`;
+    });
+
+    window.addEventListener('mouseout', () => {
+      mouse.x = null;
+      mouse.y = null;
+    });
+
+    class Particle {
+      constructor() {
+        this.x = Math.random() * width;
+        this.y = Math.random() * height;
+        this.vx = (Math.random() - 0.5) * 0.7;
+        this.vy = (Math.random() - 0.5) * 0.7;
+        this.radius = Math.random() * 2 + 1;
+      }
+      update() {
+        this.x += this.vx;
+        this.y += this.vy;
+
+        if (this.x < 0 || this.x > width) this.vx = -this.vx;
+        if (this.y < 0 || this.y > height) this.vy = -this.vy;
+
+        // Mouse attraction
+        if (mouse.x != null && mouse.y != null) {
+          let dx = mouse.x - this.x;
+          let dy = mouse.y - this.y;
+          let dist = Math.sqrt(dx * dx + dy * dy);
+          if (dist < mouse.radius) {
+            this.x += dx * 0.015;
+            this.y += dy * 0.015;
+          }
+        }
+      }
+      draw() {
+        ctx.beginPath();
+        ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+        ctx.fillStyle = '#00F0FF';
+        ctx.fill();
+      }
+    }
+
+    function initParticles() {
+      particles = [];
+      const count = Math.floor((width * height) / 14000);
+      for (let i = 0; i < count; i++) {
+        particles.push(new Particle());
+      }
+    }
+
+    function animateNeural() {
+      ctx.clearRect(0, 0, width, height);
+      for (let i = 0; i < particles.length; i++) {
+        particles[i].update();
+        particles[i].draw();
+
+        for (let j = i + 1; j < particles.length; j++) {
+          const dx = particles[i].x - particles[j].x;
+          const dy = particles[i].y - particles[j].y;
+          const dist = Math.sqrt(dx * dx + dy * dy);
+
+          if (dist < 120) {
+            ctx.beginPath();
+            ctx.strokeStyle = `rgba(0, 240, 255, ${1 - dist / 120})`;
+            ctx.lineWidth = 0.6;
+            ctx.moveTo(particles[i].x, particles[i].y);
+            ctx.lineTo(particles[j].x, particles[j].y);
+            ctx.stroke();
+          }
+        }
+      }
+      requestAnimationFrame(animateNeural);
+    }
+
+    window.addEventListener('resize', resizeCanvas);
+    resizeCanvas();
+    animateNeural();
+
+    // 2. DYNAMIC TYPING HEADLINE ANIMATION
+    const roles = [
+      "Full-Stack Web Dev 💻",
+      "Aspiring AI Engineer 🤖",
+      "Next.js & React Expert ⚡",
+      "Student @ GCUF 🎓",
+      "PyTorch & LangChain Builder 🚀"
+    ];
+    let roleIndex = 0;
+    let charIndex = 0;
+    let isDeleting = false;
+    const typedElement = document.getElementById("typedRole");
+
+    function typeEffect() {
+      const currentRole = roles[roleIndex];
+      if (isDeleting) {
+        typedElement.textContent = currentRole.substring(0, charIndex - 1);
+        charIndex--;
+      } else {
+        typedElement.textContent = currentRole.substring(0, charIndex + 1);
+        charIndex++;
+      }
+
+      let typingSpeed = isDeleting ? 40 : 80;
+
+      if (!isDeleting && charIndex === currentRole.length) {
+        typingSpeed = 1600; // Pause at end
+        isDeleting = true;
+      } else if (isDeleting && charIndex === 0) {
+        isDeleting = false;
+        roleIndex = (roleIndex + 1) % roles.length;
+        typingSpeed = 400; // Pause before new word
+      }
+
+      setTimeout(typeEffect, typingSpeed);
+    }
+    typeEffect();
+
+    // 3. INTERSECTION OBSERVER FOR SCROLL REVEALS
+    const revealElements = document.querySelectorAll('.reveal');
+    const revealObserver = new IntersectionObserver((entries, observer) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('active');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.15 });
+
+    revealElements.forEach(el => revealObserver.observe(el));
+
+    // 4. ANIMATED NUMBER COUNTERS
+    const counters = document.querySelectorAll('.counter');
+    const counterObserver = new IntersectionObserver((entries, observer) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const target = +entry.target.getAttribute('data-target');
+          let count = 0;
+          const step = Math.ceil(target / 40);
+          const updateCount = () => {
+            count += step;
+            if (count < target) {
+              entry.target.innerText = count + "+";
+              setTimeout(updateCount, 25);
+            } else {
+              entry.target.innerText = target + "+";
+            }
+          };
+          updateCount();
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.5 });
+
+    counters.forEach(c => counterObserver.observe(c));
+
+    // 5. 3D CARD TILT ON HOVER
+    document.querySelectorAll('.tilt-card').forEach(card => {
+      card.addEventListener('mousemove', (e) => {
+        const rect = card.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+        const centerX = rect.width / 2;
+        const centerY = rect.height / 2;
+        const rotateX = ((y - centerY) / centerY) * -7;
+        const rotateY = ((x - centerX) / centerX) * 7;
+
+        card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-6px)`;
+      });
+
+      card.addEventListener('mouseleave', () => {
+        card.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg) translateY(0px)';
+      });
+    });
+
+    // 6. PROJECT FILTERING ANIMATION
+    function filterProjects(category) {
+      document.querySelectorAll('.project-filter-btn').forEach(btn => {
+        if (btn.getAttribute('data-category') === category) {
+          btn.className = 'project-filter-btn px-5 py-2 rounded-full text-xs font-bold border border-cyan-400/50 bg-cyan-400/15 text-cyan-300 transition-all cursor-pointer';
+        } else {
+          btn.className = 'project-filter-btn px-5 py-2 rounded-full text-xs font-bold border border-white/10 bg-[#0E1424] text-gray-400 hover:text-white transition-all cursor-pointer';
+        }
+      });
+
+      const cards = document.querySelectorAll('.project-card');
+      cards.forEach(card => {
+        const cardCats = card.getAttribute('data-cat') || '';
+        if (category === 'all' || cardCats.includes(category)) {
+          card.style.display = 'flex';
+          setTimeout(() => {
+            card.style.opacity = '1';
+            card.style.transform = 'translateY(0) scale(1)';
+          }, 50);
+        } else {
+          card.style.opacity = '0';
+          card.style.transform = 'translateY(20px) scale(0.95)';
+          setTimeout(() => {
+            card.style.display = 'none';
+          }, 200);
+        }
+      });
+    }
+
+    // 7. COPY CODE SNIPPET
+    function copySnippet() {
+      const code = document.getElementById('codeSnippet').innerText;
+      navigator.clipboard.writeText(code).then(() => {
+        const copyText = document.getElementById('copyText');
+        copyText.innerText = 'copied! ✨';
+        copyText.classList.add('text-cyan-400');
+        setTimeout(() => {
+          copyText.innerText = 'copy';
+          copyText.classList.remove('text-cyan-400');
+        }, 2000);
+      });
+    }
+
+    // 8. MOBILE MENU TOGGLE
+    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+    mobileMenuBtn.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
+    });
+    document.querySelectorAll('.mobile-link').forEach(link => {
+      link.addEventListener('click', () => mobileMenu.classList.add('hidden'));
+    });
+
+    // 9. CONTACT FORM INTERACTION
+    function handleFormSubmit(e) {
+      e.preventDefault();
+      const submitBtn = document.getElementById('submitBtn');
+      const feedback = document.getElementById('formFeedback');
+
+      const name = document.getElementById('senderName').value;
+      const subject = document.getElementById('subjectLine').value;
+      const message = document.getElementById('messageBody').value;
+
+      submitBtn.disabled = true;
+      submitBtn.innerHTML = '<span>Processing...</span> <i class="fas fa-spinner fa-spin text-xs"></i>';
+
+      setTimeout(() => {
+        feedback.classList.remove('hidden');
+        submitBtn.disabled = false;
+        submitBtn.innerHTML = '<span>Message Prepared!</span> <i class="fas fa-check text-xs"></i>';
+        
+        // Open user's default email client with pre-filled content
+        window.location.href = `mailto:aqdasatta@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent("From: " + name + "\n\n" + message)}`;
+        
+        document.getElementById('contactForm').reset();
+      }, 1000);
+    }
+  </script>
+</body>
+</html>
