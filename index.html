@@ -571,255 +571,65 @@ developer = <span class="text-cyan-300">SoftwareEngineer</span>()
   </section>
 
   <!-- Featured Projects Gallery with Animated Filter -->
-  <section id="projects" class="py-28 relative z-10">
-    <div class="max-w-7xl mx-auto px-6">
-      
-      <div class="text-center max-w-2xl mx-auto mb-14 space-y-3 reveal">
-        <span class="text-cyan-400 font-mono text-xs uppercase tracking-widest bg-cyan-950/60 px-3.5 py-1.5 rounded-full border border-cyan-500/20">
-          Handcrafted Work
-        </span>
-        <h2 class="text-3xl sm:text-5xl font-extrabold text-white">Featured Projects</h2>
-        <p class="text-gray-400 text-sm sm:text-base">Real-world applications spanning intelligent AI tools, SaaS platforms, and full-stack systems.</p>
-        
-        <!-- Animated Filter Pills -->
-        <div class="flex items-center justify-center gap-2 pt-6 flex-wrap">
-          <button onclick="filterProjects('all')" class="project-filter-btn px-5 py-2 rounded-full text-xs font-bold border border-cyan-400/50 bg-cyan-400/15 text-cyan-300 transition-all cursor-pointer" data-category="all">
-            All Projects
-          </button>
-          <button onclick="filterProjects('ai')" class="project-filter-btn px-5 py-2 rounded-full text-xs font-bold border border-white/10 bg-[#0E1424] text-gray-400 hover:text-white transition-all cursor-pointer" data-category="ai">
-            🤖 AI & Machine Learning
-          </button>
-          <button onclick="filterProjects('web')" class="project-filter-btn px-5 py-2 rounded-full text-xs font-bold border border-white/10 bg-[#0E1424] text-gray-400 hover:text-white transition-all cursor-pointer" data-category="web">
-            💻 Web Development
-          </button>
-          <button onclick="filterProjects('fullstack')" class="project-filter-btn px-5 py-2 rounded-full text-xs font-bold border border-white/10 bg-[#0E1424] text-gray-400 hover:text-white transition-all cursor-pointer" data-category="fullstack">
-            ⚡ Full-Stack SaaS
-          </button>
+   <section id="projects" class="py-24 max-w-7xl mx-auto px-6 reveal">
+    <div class="text-center mb-16">
+      <h2 class="text-4xl font-extrabold text-white mb-4">Featured <span class="text-gradient">Projects</span></h2>
+      <p class="text-gray-400 max-w-xl mx-auto">Real-world applications spanning full-stack management and campus portal utility systems.</p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+      <!-- Card 1: Alumni Management System -->
+      <div class="glass-card tilt-card rounded-2xl p-8 flex flex-col justify-between transition-all duration-300">
+        <div>
+          <div class="flex items-center justify-between mb-6">
+            <div class="text-4xl text-brand-purple">
+              <i class="fas fa-graduation-cap"></i>
+            </div>
+            <div class="flex gap-4 text-gray-400 text-lg">
+              <a href="https://github.com" target="_blank" class="hover:text-brand-cyan transition-colors"><i class="fab fa-github"></i></a>
+            </div>
+          </div>
+          <h3 class="text-2xl font-bold text-white mb-3 hover:text-brand-cyan transition-colors">
+            <a href="https://github.com" target="_blank">Alumni Management System</a>
+          </h3>
+          <p class="text-gray-400 text-sm leading-relaxed mb-6">
+            Developed a multi-user software network using Laravel and PHP. Implemented full database structural design to manage alumni data seamlessly across the system.
+          </p>
+        </div>
+        <div>
+          <div class="flex flex-wrap gap-2 text-xs font-mono text-brand-cyan bg-brand-cyan/5 py-1 px-3 rounded-lg w-fit">
+            <span>PHP</span> &bull; <span>Laravel</span> &bull; <span>MySQL</span>
+          </div>
         </div>
       </div>
 
-      <!-- Projects Grid -->
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="projectsGrid">
-        
-        <!-- Project 1: AI Docs & Knowledge Assistant -->
-        <div class="project-card tilt-card rounded-2xl glass-card overflow-hidden hover:border-cyan-400/50 hover:-translate-y-2 transition-all duration-300 flex flex-col reveal" data-cat="ai fullstack">
-          <div class="h-52 bg-gradient-to-tr from-cyan-950 via-[#0E1424] to-gray-900 flex items-center justify-center relative p-6 border-b border-white/10 overflow-hidden group">
-            <div class="w-16 h-16 rounded-2xl bg-cyan-500/20 border border-cyan-400/40 flex items-center justify-center text-cyan-400 text-3xl group-hover:scale-110 transition-transform">
-              <i class="fas fa-robot"></i>
+      <!-- Card 2: Campus Connect -->
+      <div class="glass-card tilt-card rounded-2xl p-8 flex flex-col justify-between transition-all duration-300">
+        <div>
+          <div class="flex items-center justify-between mb-6">
+            <div class="text-4xl text-brand-cyan">
+              <i class="fas fa-bullhorn"></i>
             </div>
-            <span class="absolute top-4 right-4 px-3 py-1 rounded-full bg-cyan-950/90 text-cyan-300 text-xs font-mono border border-cyan-500/30">
-              RAG + AI
-            </span>
+            <div class="flex gap-4 text-gray-400 text-lg">
+              <a href="https://github.com" target="_blank" class="hover:text-brand-cyan transition-colors"><i class="fab fa-github"></i></a>
+            </div>
           </div>
-          <div class="p-6 flex-1 flex flex-col justify-between space-y-5">
-            <div>
-              <h3 class="text-xl font-bold text-white hover:text-cyan-400 transition-colors">AI Docs & Knowledge Assistant</h3>
-              <p class="text-gray-400 text-xs sm:text-sm mt-2.5 leading-relaxed">
-                Full-stack conversational application with RAG (Retrieval-Augmented Generation) allowing users to upload custom PDFs and query them via vector embeddings and Gemini API.
-              </p>
-            </div>
-            <div class="space-y-4">
-              <div class="flex flex-wrap gap-1.5">
-                <span class="px-2.5 py-1 rounded-md bg-white/5 text-cyan-300 text-xs font-mono">Next.js 14</span>
-                <span class="px-2.5 py-1 rounded-md bg-white/5 text-cyan-300 text-xs font-mono">FastAPI</span>
-                <span class="px-2.5 py-1 rounded-md bg-white/5 text-cyan-300 text-xs font-mono">LangChain</span>
-                <span class="px-2.5 py-1 rounded-md bg-white/5 text-cyan-300 text-xs font-mono">ChromaDB</span>
-              </div>
-              <div class="flex items-center justify-between pt-3 border-t border-white/10">
-                <a href="https://github.com/Anny-card/ai-smart-assistant" target="_blank" class="text-xs font-semibold text-gray-300 hover:text-cyan-400 flex items-center gap-1.5 transition-colors">
-                  <i class="fab fa-github"></i> Repository
-                </a>
-                <a href="https://github.com/Anny-card" target="_blank" class="text-xs font-bold text-cyan-400 hover:text-cyan-300 flex items-center gap-1 transition-colors">
-                  Live Demo <i class="fas fa-external-link-alt text-[10px]"></i>
-                </a>
-              </div>
-            </div>
+          <h3 class="text-2xl font-bold text-white mb-3 hover:text-brand-cyan transition-colors">
+            <a href="https://github.com" target="_blank">Campus Connect</a>
+          </h3>
+          <p class="text-gray-400 text-sm leading-relaxed mb-6">
+            Developed a campus lost-and-found application to help students report lost belongings and share details of found items. This project focuses on bringing campus lost-and-found information into one unified utility workspace.
+          </p>
+        </div>
+        <div>
+          <div class="flex flex-wrap gap-2 text-xs font-mono text-brand-cyan bg-brand-cyan/5 py-1 px-3 rounded-lg w-fit">
+            <span>HTML</span> &bull; <span>CSS</span> &bull; <span>JavaScript</span> &bull; <span>PHP</span>
           </div>
         </div>
-
-        <!-- Project 2: IntelliCommerce Platform -->
-        <div class="project-card tilt-card rounded-2xl glass-card overflow-hidden hover:border-purple-400/50 hover:-translate-y-2 transition-all duration-300 flex flex-col reveal" data-cat="web fullstack">
-          <div class="h-52 bg-gradient-to-tr from-purple-950 via-[#0E1424] to-gray-900 flex items-center justify-center relative p-6 border-b border-white/10 overflow-hidden group">
-            <div class="w-16 h-16 rounded-2xl bg-purple-500/20 border border-purple-400/40 flex items-center justify-center text-purple-400 text-3xl group-hover:scale-110 transition-transform">
-              <i class="fas fa-shopping-bag"></i>
-            </div>
-            <span class="absolute top-4 right-4 px-3 py-1 rounded-full bg-purple-950/90 text-purple-300 text-xs font-mono border border-purple-500/30">
-              E-Commerce SaaS
-            </span>
-          </div>
-          <div class="p-6 flex-1 flex flex-col justify-between space-y-5">
-            <div>
-              <h3 class="text-xl font-bold text-white hover:text-purple-400 transition-colors">IntelliCommerce Platform</h3>
-              <p class="text-gray-400 text-xs sm:text-sm mt-2.5 leading-relaxed">
-                Full-stack storefront with AI-driven product recommendations, JWT secure authentication, Stripe checkout processing, and real-time inventory management.
-              </p>
-            </div>
-            <div class="space-y-4">
-              <div class="flex flex-wrap gap-1.5">
-                <span class="px-2.5 py-1 rounded-md bg-white/5 text-purple-300 text-xs font-mono">React</span>
-                <span class="px-2.5 py-1 rounded-md bg-white/5 text-purple-300 text-xs font-mono">Node.js</span>
-                <span class="px-2.5 py-1 rounded-md bg-white/5 text-purple-300 text-xs font-mono">Express</span>
-                <span class="px-2.5 py-1 rounded-md bg-white/5 text-purple-300 text-xs font-mono">MongoDB</span>
-              </div>
-              <div class="flex items-center justify-between pt-3 border-t border-white/10">
-                <a href="https://github.com/Anny-card/intellicommerce" target="_blank" class="text-xs font-semibold text-gray-300 hover:text-purple-400 flex items-center gap-1.5 transition-colors">
-                  <i class="fab fa-github"></i> Repository
-                </a>
-                <a href="https://github.com/Anny-card" target="_blank" class="text-xs font-bold text-purple-400 hover:text-purple-300 flex items-center gap-1 transition-colors">
-                  Live Demo <i class="fas fa-external-link-alt text-[10px]"></i>
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Project 3: AI Visual Inspector -->
-        <div class="project-card tilt-card rounded-2xl glass-card overflow-hidden hover:border-pink-400/50 hover:-translate-y-2 transition-all duration-300 flex flex-col reveal" data-cat="ai">
-          <div class="h-52 bg-gradient-to-tr from-pink-950 via-[#0E1424] to-gray-900 flex items-center justify-center relative p-6 border-b border-white/10 overflow-hidden group">
-            <div class="w-16 h-16 rounded-2xl bg-pink-500/20 border border-pink-400/40 flex items-center justify-center text-pink-400 text-3xl group-hover:scale-110 transition-transform">
-              <i class="fas fa-eye"></i>
-            </div>
-            <span class="absolute top-4 right-4 px-3 py-1 rounded-full bg-pink-950/90 text-pink-300 text-xs font-mono border border-pink-500/30">
-              Computer Vision
-            </span>
-          </div>
-          <div class="p-6 flex-1 flex flex-col justify-between space-y-5">
-            <div>
-              <h3 class="text-xl font-bold text-white hover:text-pink-400 transition-colors">DeepVision - AI Image Classifier</h3>
-              <p class="text-gray-400 text-xs sm:text-sm mt-2.5 leading-relaxed">
-                Interactive web application powered by a PyTorch convolutional neural network (CNN) for real-time visual classification, bounding box detection, and probability scoring.
-              </p>
-            </div>
-            <div class="space-y-4">
-              <div class="flex flex-wrap gap-1.5">
-                <span class="px-2.5 py-1 rounded-md bg-white/5 text-pink-300 text-xs font-mono">PyTorch</span>
-                <span class="px-2.5 py-1 rounded-md bg-white/5 text-pink-300 text-xs font-mono">Python</span>
-                <span class="px-2.5 py-1 rounded-md bg-white/5 text-pink-300 text-xs font-mono">Flask</span>
-                <span class="px-2.5 py-1 rounded-md bg-white/5 text-pink-300 text-xs font-mono">OpenCV</span>
-              </div>
-              <div class="flex items-center justify-between pt-3 border-t border-white/10">
-                <a href="https://github.com/Anny-card/ai-image-classifier" target="_blank" class="text-xs font-semibold text-gray-300 hover:text-pink-400 flex items-center gap-1.5 transition-colors">
-                  <i class="fab fa-github"></i> Repository
-                </a>
-                <a href="https://github.com/Anny-card" target="_blank" class="text-xs font-bold text-pink-400 hover:text-pink-300 flex items-center gap-1 transition-colors">
-                  Live Demo <i class="fas fa-external-link-alt text-[10px]"></i>
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Project 4: TaskMatrix SaaS -->
-        <div class="project-card tilt-card rounded-2xl glass-card overflow-hidden hover:border-amber-400/50 hover:-translate-y-2 transition-all duration-300 flex flex-col reveal" data-cat="web fullstack">
-          <div class="h-52 bg-gradient-to-tr from-amber-950 via-[#0E1424] to-gray-900 flex items-center justify-center relative p-6 border-b border-white/10 overflow-hidden group">
-            <div class="w-16 h-16 rounded-2xl bg-amber-500/20 border border-amber-400/40 flex items-center justify-center text-amber-400 text-3xl group-hover:scale-110 transition-transform">
-              <i class="fas fa-columns"></i>
-            </div>
-            <span class="absolute top-4 right-4 px-3 py-1 rounded-full bg-amber-950/90 text-amber-300 text-xs font-mono border border-amber-500/30">
-              Productivity SaaS
-            </span>
-          </div>
-          <div class="p-6 flex-1 flex flex-col justify-between space-y-5">
-            <div>
-              <h3 class="text-xl font-bold text-white hover:text-amber-400 transition-colors">TaskMatrix - Agile PM Platform</h3>
-              <p class="text-gray-400 text-xs sm:text-sm mt-2.5 leading-relaxed">
-                Collaborative project management dashboard featuring interactive Kanban drag-and-drop boards, live WebSocket updates, and team role-based permissions.
-              </p>
-            </div>
-            <div class="space-y-4">
-              <div class="flex flex-wrap gap-1.5">
-                <span class="px-2.5 py-1 rounded-md bg-white/5 text-amber-300 text-xs font-mono">Next.js</span>
-                <span class="px-2.5 py-1 rounded-md bg-white/5 text-amber-300 text-xs font-mono">TypeScript</span>
-                <span class="px-2.5 py-1 rounded-md bg-white/5 text-amber-300 text-xs font-mono">PostgreSQL</span>
-                <span class="px-2.5 py-1 rounded-md bg-white/5 text-amber-300 text-xs font-mono">Prisma</span>
-              </div>
-              <div class="flex items-center justify-between pt-3 border-t border-white/10">
-                <a href="https://github.com/Anny-card/taskmatrix-saas" target="_blank" class="text-xs font-semibold text-gray-300 hover:text-amber-400 flex items-center gap-1.5 transition-colors">
-                  <i class="fab fa-github"></i> Repository
-                </a>
-                <a href="https://github.com/Anny-card" target="_blank" class="text-xs font-bold text-amber-400 hover:text-amber-300 flex items-center gap-1 transition-colors">
-                  Live Demo <i class="fas fa-external-link-alt text-[10px]"></i>
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Project 5: CodeSensei AI -->
-        <div class="project-card tilt-card rounded-2xl glass-card overflow-hidden hover:border-blue-400/50 hover:-translate-y-2 transition-all duration-300 flex flex-col reveal" data-cat="ai web">
-          <div class="h-52 bg-gradient-to-tr from-blue-950 via-[#0E1424] to-gray-900 flex items-center justify-center relative p-6 border-b border-white/10 overflow-hidden group">
-            <div class="w-16 h-16 rounded-2xl bg-blue-500/20 border border-blue-400/40 flex items-center justify-center text-blue-400 text-3xl group-hover:scale-110 transition-transform">
-              <i class="fas fa-terminal"></i>
-            </div>
-            <span class="absolute top-4 right-4 px-3 py-1 rounded-full bg-blue-950/90 text-blue-300 text-xs font-mono border border-blue-500/30">
-              Developer Tool
-            </span>
-          </div>
-          <div class="p-6 flex-1 flex flex-col justify-between space-y-5">
-            <div>
-              <h3 class="text-xl font-bold text-white hover:text-blue-400 transition-colors">CodeSensei - AI Code Reviewer</h3>
-              <p class="text-gray-400 text-xs sm:text-sm mt-2.5 leading-relaxed">
-                Developer productivity tool that inspects snippets for security bugs, time complexity analysis, and suggests idiomatic refactoring via Gemini API.
-              </p>
-            </div>
-            <div class="space-y-4">
-              <div class="flex flex-wrap gap-1.5">
-                <span class="px-2.5 py-1 rounded-md bg-white/5 text-blue-300 text-xs font-mono">React</span>
-                <span class="px-2.5 py-1 rounded-md bg-white/5 text-blue-300 text-xs font-mono">Gemini API</span>
-                <span class="px-2.5 py-1 rounded-md bg-white/5 text-blue-300 text-xs font-mono">Node.js</span>
-                <span class="px-2.5 py-1 rounded-md bg-white/5 text-blue-300 text-xs font-mono">Tailwind</span>
-              </div>
-              <div class="flex items-center justify-between pt-3 border-t border-white/10">
-                <a href="https://github.com/Anny-card" target="_blank" class="text-xs font-semibold text-gray-300 hover:text-blue-400 flex items-center gap-1.5 transition-colors">
-                  <i class="fab fa-github"></i> Repository
-                </a>
-                <a href="https://github.com/Anny-card" target="_blank" class="text-xs font-bold text-blue-400 hover:text-blue-300 flex items-center gap-1 transition-colors">
-                  Live Demo <i class="fas fa-external-link-alt text-[10px]"></i>
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Project 6: GCUF Portal Concept -->
-        <div class="project-card tilt-card rounded-2xl glass-card overflow-hidden hover:border-emerald-400/50 hover:-translate-y-2 transition-all duration-300 flex flex-col reveal" data-cat="web">
-          <div class="h-52 bg-gradient-to-tr from-emerald-950 via-[#0E1424] to-gray-900 flex items-center justify-center relative p-6 border-b border-white/10 overflow-hidden group">
-            <div class="w-16 h-16 rounded-2xl bg-emerald-500/20 border border-emerald-400/40 flex items-center justify-center text-emerald-400 text-3xl group-hover:scale-110 transition-transform">
-              <i class="fas fa-graduation-cap"></i>
-            </div>
-            <span class="absolute top-4 right-4 px-3 py-1 rounded-full bg-emerald-950/90 text-emerald-300 text-xs font-mono border border-emerald-500/30">
-              Campus Project
-            </span>
-          </div>
-          <div class="p-6 flex-1 flex flex-col justify-between space-y-5">
-            <div>
-              <h3 class="text-xl font-bold text-white hover:text-emerald-400 transition-colors">GCUF Academic Portal</h3>
-              <p class="text-gray-400 text-xs sm:text-sm mt-2.5 leading-relaxed">
-                Streamlined academic portal prototype designed for students to track coursework, grade distributions, and automated attendance alerts.
-              </p>
-            </div>
-            <div class="space-y-4">
-              <div class="flex flex-wrap gap-1.5">
-                <span class="px-2.5 py-1 rounded-md bg-white/5 text-emerald-300 text-xs font-mono">React</span>
-                <span class="px-2.5 py-1 rounded-md bg-white/5 text-emerald-300 text-xs font-mono">Express</span>
-                <span class="px-2.5 py-1 rounded-md bg-white/5 text-emerald-300 text-xs font-mono">MongoDB</span>
-                <span class="px-2.5 py-1 rounded-md bg-white/5 text-emerald-300 text-xs font-mono">Tailwind</span>
-              </div>
-              <div class="flex items-center justify-between pt-3 border-t border-white/10">
-                <a href="https://github.com/Anny-card" target="_blank" class="text-xs font-semibold text-gray-300 hover:text-emerald-400 flex items-center gap-1.5 transition-colors">
-                  <i class="fab fa-github"></i> Repository
-                </a>
-                <a href="https://github.com/Anny-card" target="_blank" class="text-xs font-bold text-emerald-400 hover:text-emerald-300 flex items-center gap-1 transition-colors">
-                  Live Demo <i class="fas fa-external-link-alt text-[10px]"></i>
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
-
       </div>
     </div>
   </section>
+
 
   <!-- Interactive Timeline / Roadmap -->
   <section id="experience" class="py-28 bg-[#070B12] relative z-10 border-y border-white/5">
